@@ -10,9 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
       <h2 class="mb">{{ product.title }}</h2>
       <br />
       <img [src]="product.image" [alt]="product.title" />
-      <p>{{ product.text }}</p>
-      <p>{{ product.time }}</p>
-      <a [href]="product.link" target="_blank">Посмотреть курс</a>
+      <p>{{ product.genre }}</p>
+      <p>{{ product.release }}</p>
+      <a [href]="product.link" target="_blank">Открыть страницу с игрой</a>
     </div>
   `,
 })
@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   goBack() {
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {

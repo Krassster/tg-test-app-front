@@ -6,19 +6,19 @@ import { TelegramService } from 'src/app/services/telegram.service';
   selector: 'app-shop',
   template: `
     <app-product-list
-      title="Отдельный навык"
-      subtitle="Изучите востребованные технологии, чтобы расширить свой стек и добавить заветную галочку в резюме"
-      [products]="products.byGroup['skill']"
+      title="Ожидаемые"
+      subtitle="Самые ожидаемые игры нашими пользователями"
+      [products]="products.byGroup['anticipated']"
     />
     <app-product-list
-      title="Интенсивы"
-      subtitle="Экспресс-программы, где за короткий период вы получаете максимум пользы"
-      [products]="products.byGroup['intensive']"
+      title="В центре внимания"
+      subtitle="Какая игра сейчас обсуждается больше всего?"
+      [products]="products.byGroup['in the spotlight']"
     />
     <app-product-list
-      title="Бесплатные курсы"
-      subtitle="Необходимые навыки и проекты в портфолио за ваши старания"
-      [products]="products.byGroup['course']"
+      title="Лучшие от StopGame"
+      subtitle="Игры, которые получили оценку Изумительно от наших редакторов"
+      [products]="products.byGroup['amazing from StopGame']"
     />
   `,
 })
@@ -28,6 +28,5 @@ export class ShopComponent {
 
   constructor() {
     this.telegram.BackButton.hide();
-    console.log(this.products.byGroup);
   }
 }

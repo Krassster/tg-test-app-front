@@ -1,121 +1,137 @@
 import { Injectable } from '@angular/core';
 
-const domain = 'https://result.school';
+const domain = 'https://stopgame.ru/game';
+const domainIMG = 'https://images.stopgame.ru/games/logos';
 
 export enum ProductType {
-  Skill = 'skill',
-  Intensive = 'intensive',
-  Course = 'course',
+  Anticipated = 'anticipated',
+  InTheSpotlight = 'in the spotlight',
+  AmazingFromStopGame = 'amazing from StopGame',
+}
+
+export enum ProductGenre {
+  Action = 'Экшн',
+  Adventure = 'Приключение',
+  RPG = 'Ролевая',
+  Online = 'Онлайн',
 }
 
 export interface IProduct {
   id: string;
-  text: string;
+  genre: ProductGenre[];
   title: string;
   link: string;
   image: string;
-  time: string;
+  release: string;
   type: ProductType;
 }
 
 function addDomainToLinkAndImage(product: IProduct) {
   return {
     ...product,
-    image: domain + product.image,
+    image: domainIMG + product.image,
     link: domain + product.link,
   };
 }
 
 const products: IProduct[] = [
   {
-    id: '29',
-    title: 'TypeScript',
-    link: '/products/typescript',
-    image: '/img/icons/products/icon-ts.svg',
-    text: 'Основы, типы компилятор, классы, generic, утилиты, декораторы, advenced...',
-    time: 'С опытом. 2 недели.',
-    type: ProductType.Skill,
+    id: '1',
+    title: 'Alone in the Darkt',
+    link: '/alone_in_the_dark_2024',
+    image:
+      '/22417/c224x224/-mxzmcdqobEUfPUR__mijg/alone_in_the_dark_2022-square.jpg',
+    genre: [ProductGenre.Action, ProductGenre.Adventure],
+    release: '20 марта 2024',
+    type: ProductType.Anticipated,
   },
   {
-    id: '30',
-    title: 'Git и GitHub',
-    link: '/products/git',
-    image: '/img/icons/products/icon-git.svg',
-    text: 'BLD, история версий, ветвление, удаленный репорзиторий, релизы, opensourse...',
-    time: 'С опытом. 2 недели.',
-    type: ProductType.Skill,
+    id: '2',
+    title: 'Final Fantasy VII Rebirth',
+    link: '/final_fantasy_vii_rebirth',
+    image:
+      '/22106/c224x224/lj-OQAxXqQzn1m1wpYMiAg/final_fantasy_vii_rebirth-square_1.jpg',
+    genre: [ProductGenre.Action, ProductGenre.RPG],
+    release: '29 февраля 2024',
+    type: ProductType.Anticipated,
   },
   {
-    id: '910',
-    title: 'Redux, Redux Toolkit и MobX',
-    link: '/products/state-managers',
-    image: '/img/icons/products/icon-state-managers.svg',
-    text: 'Redux, React Redux, Redux DevTools',
-    time: 'С опытом. 2 недели.',
-    type: ProductType.Skill,
+    id: '3',
+    title: 'The Thaumaturge',
+    link: '/the_thaumaturge',
+    image:
+      '/25224/c224x224/p6uHHQ4W02nMWaDXp4N1Gw/the_thaumaturge-square_1.jpg',
+    genre: [ProductGenre.Adventure, ProductGenre.RPG],
+    release: '4 марта 2024',
+    type: ProductType.Anticipated,
   },
   {
-    id: '940',
-    title: 'React Advanced',
-    link: '/products/react',
-    image: '/img/icons/products/icon-react.svg',
-    text: 'React JS, Hooks, Forms, React Router v6',
-    time: 'С опытом. 8 недель.',
-    type: ProductType.Skill,
+    id: '4',
+    title: 'Pacific Drive',
+    link: '/pacific_drive',
+    image: '/22551/c224x224/mups211lpEmkaxroYaECRw/pacific_drive-square.jpg',
+    genre: [ProductGenre.Adventure],
+    release: '22 февраля 2024',
+    type: ProductType.Anticipated,
   },
   {
-    id: '920',
-    title: 'Первая ступень профессии frontend-разработчика',
-    link: '/products/first-stage',
-    image: '/img/icons/products/icon-first-stage.svg',
-    text: 'JavaScript, Debug, DOM, Webpack',
-    time: 'С нуля. 3 месяца.',
-    type: ProductType.Skill,
+    id: '5',
+    title: 'Helldivers 2',
+    link: '/helldivers_2',
+    image: '/27604/c224x224/StczMn5sdOosJ0npZVPeWw/helldivers_2-square_1.jpg',
+    genre: [ProductGenre.Action, ProductGenre.Online],
+    release: '8 февраля 2024',
+    type: ProductType.InTheSpotlight,
   },
   {
-    id: '930',
-    title: 'Вторая ступень профессии frontend-разработчика',
-    link: '/products/second-stage',
-    image: '/img/icons/products/icon-second-stage.svg',
-    text: 'React JS, Conext API, Redux, Webpack',
-    time: 'С опытом. 6 месяцев.',
-    type: ProductType.Skill,
+    id: '6',
+    title: 'Baldur’s Gate III',
+    link: '/baldur_s_gate_iii',
+    image:
+      '/19092/c224x224/4EI2-rC8Jq5naa8egfcN3g/baldur_s_gate_iii-square.jpg',
+    genre: [ProductGenre.Adventure, ProductGenre.RPG],
+    release: '3 августа 2023',
+    type: ProductType.InTheSpotlight,
   },
   {
-    id: '24',
-    title: 'Основы программирования',
-    link: '/products/base-programming',
-    image: '/img/icons/products/icon-base-programming.svg',
-    text: 'Основы алгоритмов, браузера и интернета',
-    time: 'С нуля. 2 недели.',
-    type: ProductType.Intensive,
+    id: '7',
+    title: 'Suicide Squad: Kill the Justice League',
+    link: '/suicide_squad_kill_the_justice_league',
+    image:
+      '/19884/c224x224/zXoYHMTAasC_mKj4GdsopA/suicide_squad_kill_the_justice_league-square.jpg',
+    genre: [ProductGenre.Adventure, ProductGenre.Online],
+    release: '2 февраля 2024',
+    type: ProductType.InTheSpotlight,
   },
   {
-    id: '32',
-    title: 'Первый пет проект на JS',
-    link: '/products/demo-week',
-    image: '/img/icons/products/icon-test-drive.svg',
-    text: 'Основы работы с модальным окном, логика прогресс-бара',
-    time: 'С опытом. 1 неделя.',
-    type: ProductType.Skill,
+    id: '8',
+    title: 'Banishers: Ghosts of New Eden',
+    link: '/banishers_ghosts_of_new_eden',
+    image:
+      '/23539/c224x224/ikRWS3RR6JQERw_v6lqU_g/banishers_ghosts_of_new_eden-square_1.jpg',
+    genre: [ProductGenre.Action, ProductGenre.RPG],
+    release: '13 февраля 2024',
+    type: ProductType.AmazingFromStopGame,
   },
   {
-    id: '33',
-    title: 'Продвинутый JS. Создаем Excel',
-    link: '/products/advanced-js',
-    image: '/img/icons/products/icon-advanced-js.svg',
-    text: 'Webpack, Jest, Node.js, State Managers, ООП',
-    time: 'С опытом. 2 месяца.',
-    type: ProductType.Intensive,
+    id: '9',
+    title: 'Persona 3 Reload',
+    link: '/persona_3_reload',
+    image:
+      '/28433/c224x224/gp7p2QcmU9XSB5fAbM_4dg/persona_3_reload-square_1.jpg',
+    genre: [ProductGenre.RPG],
+    release: '2 февраля 2024',
+    type: ProductType.AmazingFromStopGame,
   },
   {
-    id: '28',
-    title: 'Курс "Основы JS" и 50 заданий',
-    link: '/products/javascript',
-    image: '/img/icons/products/icon-javascript.svg',
-    text: 'JS, массивы, объекты, циклы, функции',
-    time: 'С нуля. 2 недели.',
-    type: ProductType.Course,
+    id: '10',
+    title: 'Like a Dragon: Infinite Wealth',
+    link: '/like_a_dragon_infinite_wealth',
+    image:
+      '/22568/c224x224/FnE6G7vnkMKkofCkNM3YLw/like_a_dragon_infinite_wealth-square.jpg',
+    genre: [ProductGenre.Action, ProductGenre.RPG],
+    release: '26 января 2024',
+    type: ProductType.AmazingFromStopGame,
   },
 ];
 
